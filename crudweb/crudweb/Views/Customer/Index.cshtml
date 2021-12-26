@@ -1,0 +1,35 @@
+﻿@model IEnumerable<crudweb.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customer</h2>
+
+<a href=@Url.Action("Create", "Customer")>Add New Customer</a>
+
+
+<table class="table table-striped">
+    <tr>
+        <td>ID</td>
+        <td>Customer Name</td>
+        <td>Phone No.</td>
+        <td>Address</td>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.customer_id</td>
+            <td>@item.customer_name</td>
+            <td>@item.phone_no</td>
+            <td>@item.address</td>
+           
+            <td>
+                @Html.ActionLink("Add Order", "Order", "Customer")
+                @Html.ActionLink("Edit", "Edit", new { id = item.customer_id })
+                @Html.ActionLink("Delete", "Delete", new { id = item.customer_id })
+            </td>
+        </tr>
+
+    }
+</table>

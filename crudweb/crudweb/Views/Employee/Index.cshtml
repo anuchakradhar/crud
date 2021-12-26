@@ -1,0 +1,39 @@
+﻿@model IEnumerable<crudweb.Models.Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee</h2>
+
+<a href=@Url.Action("Create", "Employee")>Add New</a>
+
+
+<table class="table table-striped">
+    <tr>
+        <td>Id</td>
+        <td>Name </td>
+        <td>Department</td>
+        <td>Salary</td>
+        <td>Address</td>
+        <td>Phone</td>
+       
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.Name</td>
+            <td>@item.Department</td>
+            <td>@item.Salary</td>
+            <td>@item.Address</td>
+            <td>@item.Phone</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+
+    }
+</table>
+
